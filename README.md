@@ -1,7 +1,7 @@
 # "Dummy Switches" Plugin
 
 > [!TIP]
-> This is a drop-in replacement for the original [`homebridge-fakeswitch`](https://github.com/thncode/homebridge-fakeswitch) plugin. See [Migrating from `homebridge-fakeswitch`](#migrating-from-homebridge-fakeswitch) for setup steps.
+> This is a drop-in replacement for the original [`homebridge-fakeswitch`](https://github.com/thncode/homebridge-fakeswitch) plugin with explicit Homebridge 2 support. See [Migrating from `homebridge-fakeswitch`](#migrating-from-homebridge-fakeswitch) for setup steps.
 
 Example config.json:
 
@@ -66,38 +66,37 @@ Existing Homebridge config entries can stay the same. Your existing HomeKit acce
 ### Safe migration steps
 
 1. Back up Homebridge from the Homebridge UI.
-
 2. Stop Homebridge:
 
-```bash
-sudo hb-service stop
-```
+   ```bash
+   sudo hb-service stop
+   ```
 
 3. Remove the original plugin:
 
-```bash
-sudo hb-service remove homebridge-fakeswitch
-```
+   ```bash
+   sudo hb-service remove homebridge-magichome-dynamic-platform
+   ```
 
 4. Install this fork:
 
-```bash
-sudo hb-service add @joshjohanning/homebridge-fakeswitch
-```
+   ```bash
+   sudo hb-service add @joshjohanning/homebridge-magichome-dynamic-platform
+   ```
 
 5. Start Homebridge:
 
-```bash
-sudo hb-service start
-```
+   ```bash
+   sudo hb-service start
+   ```
 
 6. Check the Homebridge logs:
 
-```bash
-sudo hb-service logs
-```
+   ```bash
+   sudo hb-service logs
+   ```
 
-7. Verify your existing fake switches still work in Apple Home.
+7. Verify your existing MagicHome lights still work in Apple Home.
 
 ### Important notes
 
