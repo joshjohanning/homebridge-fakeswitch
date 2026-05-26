@@ -16,11 +16,11 @@ function FakeSwitch(log, config) {
   this.stateful = config.stateful;
   this.reverse = config.reverse;
   this._service = new Service.Switch(this.name);
-  
+
   this.cacheDirectory = HomebridgeAPI.user.persistPath();
   this.storage = require('node-persist');
   this.storage.initSync({dir:this.cacheDirectory, forgiveParseErrors: true});
-  
+
   this._service.getCharacteristic(Characteristic.On)
     .on('set', this._setOn.bind(this));
 
@@ -53,10 +53,10 @@ FakeSwitch.prototype._setOn = function(on, callback) {
       this._service.setCharacteristic(Characteristic.On, true);
     }.bind(this), 1000);
   }
-  
+
   if (this.stateful) {
 	this.storage.setItemSync(this.name, on);
   }
-  
+
   callback();
 }
