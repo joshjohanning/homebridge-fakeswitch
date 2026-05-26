@@ -29,6 +29,12 @@
     "url": "https://github.com/joshjohanning/homebridge-fakeswitch/issues"
   },
   "homepage": "https://github.com/joshjohanning/homebridge-fakeswitch#readme",
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://www.paypal.com/paypalme/joshuajohanning"
+    }
+  ],
   "main": "index.js",
   "dependencies": {
     "node-persist": "^4.0.4"
