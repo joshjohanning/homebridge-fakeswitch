@@ -1,6 +1,6 @@
 {
   "name": "@joshjohanning/homebridge-fakeswitch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple fake/dummy switch plugin for Homebridge; forked from thncode/homebridge-fakeswitch",
   "license": "MIT",
   "keywords": [

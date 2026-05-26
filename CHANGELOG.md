@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2026-05-26
+
+### Docs
+
+- Added migration guide and example configurations to README
+
+### Housekeeping
+
+- Switched publish workflow to npm trusted publishing
+- Fixed Node.js version in CI workflows to match engine requirements
+- Added funding metadata
+- Cleaned up whitespace in index.js
+- Renamed readme.md to README.md
+- Added LICENSE file
+
 ## [1.0.0] - 2025-05-26
 
 ### Initial Release
