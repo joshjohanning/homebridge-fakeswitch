@@ -1,13 +1,16 @@
 # "Dummy Switches" Plugin
 
+> [!TIP]
+> This is a drop-in replacement for the original [`homebridge-fakeswitch`](https://github.com/thncode/homebridge-fakeswitch) plugin. See [Migrating from `homebridge-fakeswitch`](#migrating-from-homebridge-fakeswitch) for setup steps.
+
 Example config.json:
 
-```
+```json
     "accessories": [
         {
-          "accessory": "DummySwitch",
+          "accessory": "FakeSwitch",
           "name": "My Switch 1"
-        }   
+        }
     ]
 
 ```
@@ -22,13 +25,13 @@ Instead, you can link scenes using these dummy switches. Let's say you have a Hu
 
 The default behavior of a dummy switch is to turn itself off one second after being turned on. However you may want to create a dummy switch that remains on and must be manually turned off. You can do this by passing an argument in your config.json:
 
-```
+```json
     "accessories": [
         {
-          "accessory": "DummySwitch",
+          "accessory": "FakeSwitch",
           "name": "My Stateful Switch 1",
           "stateful": true
-        }   
+        }
     ]
 
 ```
@@ -37,13 +40,76 @@ The default behavior of a dummy switch is to turn itself off one second after be
 
 You may also want to create a dummy switch that turns itself on one second after being turned off. This can be done by passing the 'reverse' argument in your config.json:
 
-```
+```json
     "accessories": [
         {
-          "accessory": "DummySwitch",
+          "accessory": "FakeSwitch",
           "name": "My Stateful Switch 1",
           "reverse": true
-        }   
+        }
     ]
 
+```
+
+## Migrating from `homebridge-fakeswitch`
+
+This package can be used as a drop-in replacement for the original [`homebridge-fakeswitch`](https://www.npmjs.com/package/homebridge-fakeswitch) plugin.
+
+This fork still registers the Homebridge accessory as:
+
+```json
+"accessory": "FakeSwitch"
+```
+
+Existing Homebridge config entries can stay the same. Your existing HomeKit accessories should keep their identity as long as you do not delete cached accessories, rename existing switches, or remove/re-pair the Homebridge bridge.
+
+### Safe migration steps
+
+1. Back up Homebridge from the Homebridge UI.
+
+2. Stop Homebridge:
+
+```bash
+sudo hb-service stop
+```
+
+3. Remove the original plugin:
+
+```bash
+sudo hb-service remove homebridge-fakeswitch
+```
+
+4. Install this fork:
+
+```bash
+sudo hb-service add @joshjohanning/homebridge-fakeswitch
+```
+
+5. Start Homebridge:
+
+```bash
+sudo hb-service start
+```
+
+6. Check the Homebridge logs:
+
+```bash
+sudo hb-service logs
+```
+
+7. Verify your existing fake switches still work in Apple Home.
+
+### Important notes
+
+Do not change existing plugin config from `FakeSwitch` during migration.
+
+Do not remove cached FakeSwitch accessories from Homebridge unless you intentionally want HomeKit to recreate them. Removing cached accessories may break room assignments, scenes, and automations that reference those switches.
+
+### Updating this fork
+
+When a new version is published to npm, update it from the Homebridge UI, or run:
+
+```bash
+sudo hb-service add @joshjohanning/homebridge-fakeswitch
+sudo hb-service restart
 ```
