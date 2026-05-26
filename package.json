@@ -10,8 +10,8 @@
     "dummy-switch"
   ],
   "engines": {
-    "node": ">=18",
-    "homebridge": "^1.0.0 || ^2.0.0"
+    "node": "^22.12.0 || ^24.0.0",
+    "homebridge": "^1.6.0 || ^2.0.0"
   },
   "author": {
     "name": "Josh Johanning"
