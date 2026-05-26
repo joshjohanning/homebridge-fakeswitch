@@ -1,14 +1,14 @@
 {
   "name": "homebridge-fakeswitch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fake switch plugin for homebridge: https://github.com/nfarina/homebridge",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin"
   ],
   "engines": {
-    "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
+    "node": "^18.20.0 || ^20.10.0 || ^22.12.0 || ^24.0.0",
+    "homebridge": "^1.6.0 || ^2.0.0"
   },
   "author": {
     "name": "Thomas Nemec"
@@ -18,7 +18,6 @@
     "url": "git://github.com/thncode/homebridge-fakeswitch.git"
   },
   "dependencies": {
-    "request": "^2.65.0",
-    "node-persist": "^2.1.0"
+    "node-persist": "^4.0.4"
   }
 }
